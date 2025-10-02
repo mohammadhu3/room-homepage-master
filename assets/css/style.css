@@ -1,0 +1,196 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img,
+input {
+    vertical-align: bottom;
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 5%;
+    z-index: 10;
+}
+
+#logo {
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+#openmenu {
+    display: none;
+}
+
+#menu label {
+    cursor: pointer;
+    z-index: 20;
+}
+
+#menu ul {
+    text-align: center;
+    padding: 1rem;
+    display: none;
+}
+
+#menu li {
+    margin: 1rem 0;
+}
+
+#menu a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #ececec;
+}
+
+/* Toggle menu open/close */
+#menu #openmenu:not(:checked) ~ ul {
+    display: none;
+}
+
+#menu #openmenu:checked ~ ul {
+    display: block;
+}
+
+#menu #openmenu:not(:checked) ~ label > img {
+    content: url("../img/icon-hamburger.svg");
+}
+
+#menu #openmenu:checked ~ label > img {
+    content: url("../img/icon-close.svg");
+}
+
+
+#slider {
+    position: relative;
+}
+
+#slider input {
+    display: none;
+}
+
+.slides {
+    position: relative;
+}
+
+.slide {
+    display: none;
+}
+
+#s1:checked ~ .slides #slide1,
+#s2:checked ~ .slides #slide2 {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    display: block;
+}
+
+.slide-text {
+    padding: 2rem;
+}
+
+.slide-text h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.slide-text p {
+    line-height: 1.6rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.slide-text a {
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #000;
+}
+
+.controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    background: #000;
+}
+
+.controls label {
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+}
+
+
+#about {
+    padding: 3rem 5%;
+}
+
+#about h2 {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+#about p {
+    color: #555;
+    line-height: 1.6rem;
+}
+
+@media screen and (min-width: 768px) {
+    #menu label {
+        display: none;
+    }
+
+    #menu ul {
+        position: static;
+        display: flex !important;
+        background: none;
+        padding: 0;
+    }
+
+    #menu li {
+        margin: 0 1rem;
+    }
+
+    .slides {
+        display: flex;
+    }
+
+    .slide img {
+        width: 60%;
+        float: left;
+    }
+
+    .slide-text {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .controls {
+        left: 60%;
+    }
+}
+
+.about1{
+    width: 50px;
+}
