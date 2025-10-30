@@ -1,196 +1,237 @@
-/* Reset */
+@font-face {
+    font-family: "spartan";
+    src: url(../font/LeagueSpartan-VariableFont_wght.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "spartan";
 }
 
-img,
-input {
-    vertical-align: bottom;
-    width: 100%;
-}
-
-ul {
-    list-style-type: none;
-}
-
+/* navigation */
 #menu {
+    padding: 1rem 0 1rem 1rem;
+    top: 1rem;
+    position: absolute;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem 5%;
-    z-index: 10;
+    z-index: 1;
+}
+
+#menu label:hover {
+    cursor: pointer;
 }
 
 #logo {
-    color: #fff;
-    font-weight: 900;
-    font-size: 1.5rem;
-}
-
-#openmenu {
-    display: none;
-}
-
-#menu label {
-    cursor: pointer;
-    z-index: 20;
+    color: white;
+    font-size: 2rem;
+    font-weight: 300;
 }
 
 #menu ul {
-    text-align: center;
-    padding: 1rem;
-    display: none;
+    position: absolute;
+    left: -100%;
+    top: 4rem;
+    transition: all .4s;
+    background-color: rgba(255, 255, 255, .7);
+    color: rgb(126, 126, 126);
+    list-style: none;
 }
 
 #menu li {
-    margin: 1rem 0;
+    padding: 1rem;
+    padding-left: 2rem;
+    width: 60vw;
+    transition: all .4s;
 }
+#menu li:hover{
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, .7);
+    cursor:pointer;
+} 
 
-#menu a {
-    text-decoration: none;
-    font-weight: 600;
-    color: #ececec;
-}
-
-/* Toggle menu open/close */
-#menu #openmenu:not(:checked) ~ ul {
+#checkbox {
     display: none;
 }
 
-#menu #openmenu:checked ~ ul {
-    display: block;
+#checkbox:checked~ul {
+    left: 5%;
 }
 
-#menu #openmenu:not(:checked) ~ label > img {
-    content: url("../img/icon-hamburger.svg");
-}
-
-#menu #openmenu:checked ~ label > img {
-    content: url("../img/icon-close.svg");
-}
-
-
-#slider {
+#imgDiscover {
     position: relative;
+    height: 50vh;
+    background-image: url(../img/mobile-image-hero-1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#slider input {
-    display: none;
-}
-
-.slides {
-    position: relative;
-}
-
-.slide {
-    display: none;
-}
-
-#s1:checked ~ .slides #slide1,
-#s2:checked ~ .slides #slide2 {
-    display: block;
-}
-
-.slide img {
-    width: 100%;
-    display: block;
-}
-
-.slide-text {
-    padding: 2rem;
-}
-
-.slide-text h1 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
-
-.slide-text p {
-    line-height: 1.6rem;
-    margin-bottom: 1rem;
-    color: #555;
-}
-
-.slide-text a {
-    text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #000;
-}
-
-.controls {
+#navDiscover {
+    background-color: black;
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
     display: flex;
-    background: #000;
+    justify-content: space-around;
+    width: 15vw;
 }
 
-.controls label {
-    color: #fff;
+#navDiscover div {
+    padding: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+#txtDiscover,
+#txtAbout {
+    padding: 4rem 2rem;
+}
+
+h1 {
     font-size: 2rem;
-    padding: 1rem 1.5rem;
-    cursor: pointer;
+    font-weight: bolder;
+    line-height: 2rem;
+    margin-bottom: 1rem;
 }
 
-
-#about {
-    padding: 3rem 5%;
+#txtDiscover p {
+    color: rgb(172, 172, 172);
+    line-height: 1.2rem;
+    margin-bottom: 2rem;
 }
 
-#about h2 {
-    text-transform: uppercase;
+#txtDiscover button {
+    letter-spacing: .7rem;
+    background-color: white;
+    border: none;
+    font-weight: 900;
+}
+
+#imgAbout1 {
+    height: 35vh;
+    background-image: url(../img/image-about-dark.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#imgAbout2 {
+    height: 35vh;
+    background-image: url(../img/image-about-light.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h2 {
+    font-size: .9rem;
+    font-weight: 900;
+    letter-spacing: .3rem;
     margin-bottom: 1rem;
 }
 
 #about p {
-    color: #555;
-    line-height: 1.6rem;
+    color: rgb(172, 172, 172);
+    line-height: 1.2rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width:576px) {
+    #menu {
+        width: 60vw;
+        justify-content: flex-start;
+    }
+
+    #logo {
+        margin-right: 1rem;
+    }
+
     #menu label {
         display: none;
     }
 
     #menu ul {
         position: static;
-        display: flex !important;
-        background: none;
-        padding: 0;
+        color: white;
+        display: flex;
+        list-style-type: none;
+        background-color: rgba(255, 255, 255, 0);
     }
 
     #menu li {
-        margin: 0 1rem;
+        padding: 1rem;
+        width: fit-content;
+        margin-top: .4rem;
     }
 
-    .slides {
+    #discover,
+    #about {
         display: flex;
     }
 
-    .slide img {
-        width: 60%;
-        float: left;
+    #imgDiscover {
+        width: 60vw;
+        height: 65vh;
+        background-image: url("../img/desktop-image-hero-1.jpg");
     }
 
-    .slide-text {
-        width: 40%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    #txtDiscover {
+        width: 40vw;
     }
 
-    .controls {
-        left: 60%;
+    #imgAbout1 {
+        width: 30vw;
+        height: 35vh;
+    }
+
+    #txtAbout {
+        width: 40vw;
+    }
+
+    #imgAbout2 {
+        width: 30vw;
+        height: 35vh;
+    }
+
+    #discover p,
+    #about p {
+        font-size: .8rem;
+    }
+
+    #txtAbout {
+        padding: 2rem 0.2rem;
+    }
+
+    #navDiscover {
+        width: 10vw;
+        left: 60vw;
+    }
+
+    #txtDiscover {
+        padding: 1rem .5rem;
     }
 }
 
-.about1{
-    width: 50px;
+@media screen and (min-width:768px) {
+    #txtAbout {
+        padding: 2rem 1rem;
+    }
+
+
+}
+
+@media screen and (min-width:1024px) {
+    #txtAbout {
+        padding: 2rem 2rem;
+    }
+
+    #txtDiscover {
+        padding: 4rem 2rem;
+    }
 }
